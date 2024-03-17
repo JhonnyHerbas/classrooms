@@ -9,10 +9,10 @@ import static com.umss.fcyt.classrooms.util.constants.DatabaseConstants.SubjectD
 
 @Data
 @Entity
-@Table (name = SubjectDB.SUBJECT)
+@Table(name = SubjectDB.SUBJECT)
 public class Subject {
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = SubjectDB.Id.ID, nullable = false)
     private Integer id;
 
