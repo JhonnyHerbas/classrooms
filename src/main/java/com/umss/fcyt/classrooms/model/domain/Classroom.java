@@ -22,7 +22,7 @@ public class Classroom {
     @Column(name = ClassroomDB.Description.DESCRIPTION)
     private String description;
 
-    @Column(name = ClassroomDB.Capacity.CAPACITY)
+    @Column(name = ClassroomDB.Capacity.CAPACITY, nullable = false)
     private Integer capacity;
 
     @Column(name = ClassroomDB.Building.BUILDING, length = ClassroomDB.Building.LENGTH, nullable = false)
