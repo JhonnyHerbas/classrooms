@@ -1,24 +1,24 @@
-package com.umss.fcyt.classrooms.model.builder;
+package com.umss.fcyt.classrooms.model.builder.classroom;
 
 import com.umss.fcyt.classrooms.api.request.classroom.CreateClassroomRequest;
 import com.umss.fcyt.classrooms.model.domain.Classroom;
 
-public final class ClassroomBuilder {
+public final class ClassroomCreateBuilder {
     private final Classroom instance;
 
-    public ClassroomBuilder() {
+    public ClassroomCreateBuilder() {
         this.instance = new Classroom();
     }
 
-    public static ClassroomBuilder getInstance(CreateClassroomRequest request) {
-        return (new ClassroomBuilder()).setClassroom(request);
+    public static ClassroomCreateBuilder getInstance(CreateClassroomRequest request) {
+        return (new ClassroomCreateBuilder()).setClassroom(request);
     }
 
     public Classroom build() {
         return instance;
     }
 
-    private ClassroomBuilder setClassroom(CreateClassroomRequest request) {
+    private ClassroomCreateBuilder setClassroom(CreateClassroomRequest request) {
         instance.setClassroomNumber(request.getClassroomNumber());
         instance.setDescription(request.getDescription());
         instance.setCapacity(request.getCapacity());

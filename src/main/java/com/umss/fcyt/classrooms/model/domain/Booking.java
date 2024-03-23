@@ -1,5 +1,7 @@
 package com.umss.fcyt.classrooms.model.domain;
 
+import com.umss.fcyt.classrooms.util.constants.BookingStatus;
+import com.umss.fcyt.classrooms.util.constants.DatabaseConstants;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -36,12 +38,16 @@ public class Booking {
     private String description;
 
     @Column(name = BookingDB.Status.STATUS, length = BookingDB.Status.LENGTH)
-    private String status;
+    private BookingStatus status;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = SubjectTeacher.class)
     @JoinColumn(name = SubjectTeacherDB.Id.ID, referencedColumnName = SubjectTeacherDB.Id.ID)
     private SubjectTeacher subjectTeacher;
 
-    @OneToMany(mappedBy = BookingDB.BOOKING, fetch = FetchType.LAZY, targetEntity = BookingClassroom.class)
-    private List<BookingClassroom> classrooms;
+    @OneToMany(mappedBy = BookingDB.BOOKING, fetch = FetchType.LAZY, targetEntity = Classroom.class)
+    private List<Classroom> classrooms;
+
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Classroom.class)
+    @JoinColumn(name = DatabaseConstants.ClassroomDB.Id.ID, referencedColumnName = DatabaseConstants.ClassroomDB.Id.ID)
+    private Classroom classroom;
 }

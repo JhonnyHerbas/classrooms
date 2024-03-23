@@ -1,5 +1,6 @@
 package com.umss.fcyt.classrooms.model.domain;
 
+import com.umss.fcyt.classrooms.util.constants.DatabaseConstants;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -37,6 +38,10 @@ public class Classroom {
     @OneToMany(mappedBy = ClassroomDB.CLASSROOM, fetch = FetchType.LAZY, targetEntity = PhotoClassroom.class)
     private List<PhotoClassroom> photos;
 
-    @OneToMany(mappedBy = ClassroomDB.CLASSROOM, fetch = FetchType.LAZY, targetEntity = BookingClassroom.class)
-    private List<BookingClassroom> bookings;
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Booking.class)
+    @JoinColumn(name = DatabaseConstants.BookingDB.Id.ID, referencedColumnName = DatabaseConstants.BookingDB.Id.ID)
+    private Booking booking;
+
+    @OneToMany(mappedBy = ClassroomDB.CLASSROOM, fetch = FetchType.LAZY, targetEntity = Booking.class)
+    private List<Booking> bookings;
 }
