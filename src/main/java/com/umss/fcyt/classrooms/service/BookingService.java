@@ -8,6 +8,7 @@ import com.umss.fcyt.classrooms.model.domain.SubjectTeacher;
 import com.umss.fcyt.classrooms.model.repository.BookingRepository;
 import com.umss.fcyt.classrooms.model.repository.ClassroomRepository;
 import com.umss.fcyt.classrooms.model.repository.SubjectTeacherRepository;
+import com.umss.fcyt.classrooms.util.constants.BookingStatus;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -37,12 +38,14 @@ public class BookingService {
         if (group.isPresent()) {
             Booking newBooking = BookingCreateBuilder.getInstance(createBookingRequest, group.get(), classrooms).build();
             Booking saved = bookingRepository.save(newBooking);
-            classrooms.forEach(classroom -> {
-                classroom.getBookings().add(saved);
-            });
+            classrooms.forEach(classroom -> classroom.getBookings().add(saved));
             return saved;
         } else {
             throw new RuntimeException("Not found group the subject.");
         }
+    }
+
+    public List<Booking> getAllBookings(BookingStatus bookingStatus) {
+        return bookingRepository.findAllByStatusOrderByDateRequestAsc(bookingStatus);
     }
 }

@@ -37,7 +37,8 @@ public class BookingCreateBuilder {
         instance.setDateBooking(request.getDateBooking());
         instance.setStartTimeBooking(request.getStartTimeBooking());
         instance.setEndTimeBooking(request.getEndTimeBooking());
-        instance.setDescription(instance.getDescription());
+        instance.setDescription(request.getDescription());
+        instance.setNumberStudents(request.getNumberStudents());
         instance.setStatus(BookingStatus.WAIT);
         instance.setSubjectTeacher(subjectTeacher);
         instance.setClassrooms(classrooms);

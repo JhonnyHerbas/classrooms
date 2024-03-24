@@ -37,8 +37,14 @@ public class Booking {
     @Column(name = BookingDB.Description.DESCRIPTION)
     private String description;
 
+    @Column(name = BookingDB.NumberStudents.NUMBER_STUDENTS)
+    private Integer numberStudents;
+
     @Column(name = BookingDB.Status.STATUS, length = BookingDB.Status.LENGTH)
     private BookingStatus status;
+
+    @Column(name = BookingDB.DescriptionResponse.DESCRIPTION_RESPONSE)
+    private String descriptionResponse;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = SubjectTeacher.class)
     @JoinColumn(name = SubjectTeacherDB.Id.ID, referencedColumnName = SubjectTeacherDB.Id.ID)

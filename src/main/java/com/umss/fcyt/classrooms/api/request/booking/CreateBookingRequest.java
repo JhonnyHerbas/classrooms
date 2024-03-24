@@ -14,6 +14,7 @@ public class CreateBookingRequest {
     private LocalTime startTimeBooking;
     private LocalTime endTimeBooking;
     private String description;
+    private Integer numberStudents;
     private Integer idGroup;
     private List<Integer> classrooms;
 }

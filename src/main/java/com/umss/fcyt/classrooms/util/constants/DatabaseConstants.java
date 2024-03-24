@@ -142,17 +142,17 @@ public final class DatabaseConstants {
             public static final String DESCRIPTION = "booking_description";
         }
 
+        public static final class NumberStudents {
+            public static final String NUMBER_STUDENTS = "booking_number_students";
+        }
+
         public static final class Status {
             public static final String STATUS = "booking_status";
             public static final int LENGTH = 15;
         }
-    }
 
-    public static final class BookingClassroomDB {
-        public static final String BOOKING_CLASSROOM = "booking_classroom";
-
-        public static final class Id {
-            public static final String ID = "booking_classroom_id";
+        public static final class DescriptionResponse {
+            public static final String DESCRIPTION_RESPONSE = "booking_description_response";
         }
     }
 }
